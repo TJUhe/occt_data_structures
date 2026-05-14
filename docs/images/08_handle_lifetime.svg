@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">OCCT handle intrusive reference counting</title>
+  <desc id="desc">Several handles point to one Standard_Transient object carrying its own reference counter.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#31546f"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1b2a34" flood-opacity=".14"/></filter>
+    <style>
+      .bg{fill:#f8fafb}.title{font:700 25px Arial,"Microsoft YaHei";fill:#203447}.card{fill:#fff;stroke:#d4dee5;stroke-width:1.3;filter:url(#shadow)}
+      .handle{fill:#eef1fb;stroke:#9babd7;stroke-width:1.2}.obj{fill:#eaf5ee;stroke:#8dbc9b;stroke-width:1.4}.warn{fill:#fff4df;stroke:#d9b36d;stroke-width:1.2}
+      .h{font:700 16px Arial,"Microsoft YaHei";fill:#233747}.t{font:14px Arial,"Microsoft YaHei";fill:#465d6b}.m{font:13px Consolas,monospace;fill:#334b5a}
+      .line{stroke:#31546f;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="980" height="520" class="bg"/>
+  <text x="44" y="50" class="title">opencascade::handle&lt;T&gt;: 侵入式引用计数，计数在对象内部</text>
+  <g transform="translate(70 102)">
+    <rect class="card" width="250" height="270" rx="8"/><text x="26" y="36" class="h">handles</text>
+    <rect x="34" y="76" width="168" height="42" rx="6" class="handle"/><text x="52" y="103" class="m">h1: handle&lt;Geom_Curve&gt;</text>
+    <rect x="34" y="140" width="168" height="42" rx="6" class="handle"/><text x="52" y="167" class="m">h2: handle&lt;Geom_Curve&gt;</text>
+    <rect x="34" y="204" width="168" height="42" rx="6" class="handle"/><text x="52" y="231" class="m">map value handle</text>
+  </g>
+  <g transform="translate(514 118)">
+    <rect class="obj" width="286" height="196" rx="10"/>
+    <text x="28" y="40" class="h">Standard_Transient object</text>
+    <rect x="32" y="70" width="216" height="44" rx="6" class="warn"/><text x="52" y="98" class="m">myRefCount_ = 3</text>
+    <text x="32" y="146" class="t">BeginScope(): ++ref</text>
+    <text x="32" y="170" class="t">EndScope(): --ref, zero -> Delete()</text>
+  </g>
+  <path class="line" d="M272 199 C380 160 420 150 514 178"/>
+  <path class="line" d="M272 263 C380 235 420 224 514 216"/>
+  <path class="line" d="M272 327 C392 315 430 276 514 242"/>
+  <text x="80" y="440" class="t">注意：TopoDS_Shape 是值对象，但它内部持有 handle&lt;TopoDS_TShape&gt;；几何、显示、消息对象则常直接以 handle 存入容器。</text>
+</svg>

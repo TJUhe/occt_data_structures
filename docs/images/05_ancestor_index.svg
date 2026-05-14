@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">MapShapesAndAncestors reverse index</title>
+  <desc id="desc">Edges are mapped to lists of ancestor faces.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#31546f"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1b2a34" flood-opacity=".14"/></filter>
+    <style>
+      .bg{fill:#f8fafb}.title{font:700 25px Arial,"Microsoft YaHei";fill:#203447}
+      .card{fill:#fff;stroke:#d4dee5;stroke-width:1.3;filter:url(#shadow)}.face{fill:#fff4df;stroke:#d9b36d;stroke-width:1.4}.edge{fill:#eaf5ee;stroke:#8dbc9b;stroke-width:1.4}
+      .table{fill:#eef1fb;stroke:#9babd7;stroke-width:1.2}.h{font:700 16px Arial,"Microsoft YaHei";fill:#233747}.t{font:14px Arial,"Microsoft YaHei";fill:#465d6b}.m{font:13px Consolas,monospace;fill:#334b5a}
+      .line{stroke:#31546f;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="980" height="540" class="bg"/>
+  <text x="44" y="50" class="title">MapShapesAndAncestors: 子形状到祖先列表的反向索引</text>
+  <g transform="translate(52 98)">
+    <rect class="card" width="360" height="300" rx="8"/>
+    <text x="24" y="36" class="h">拓扑片段</text>
+    <rect x="64" y="72" width="110" height="72" rx="8" class="face"/><text x="92" y="114" class="h">FACE A</text>
+    <rect x="190" y="72" width="110" height="72" rx="8" class="face"/><text x="218" y="114" class="h">FACE B</text>
+    <rect x="106" y="190" width="154" height="44" rx="7" class="edge"/><text x="150" y="218" class="h">EDGE e</text>
+    <path class="line" d="M119 144 C124 170 142 178 174 190"/>
+    <path class="line" d="M245 144 C238 170 224 178 194 190"/>
+  </g>
+  <g transform="translate(500 98)">
+    <rect class="card" width="398" height="300" rx="8"/>
+    <text x="24" y="36" class="h">IndexedDataMap&lt;edge, List&lt;face&gt;&gt;</text>
+    <rect x="28" y="72" width="340" height="46" rx="6" class="table"/><text x="46" y="101" class="m">index 1: EDGE e -> [FACE A, FACE B]</text>
+    <rect x="28" y="136" width="340" height="46" rx="6" class="table"/><text x="46" y="165" class="m">index 2: EDGE x -> [FACE A]</text>
+    <rect x="28" y="200" width="340" height="46" rx="6" class="table"/><text x="46" y="229" class="m">index 3: EDGE y -> [FACE B]</text>
+  </g>
+  <path class="line" d="M412 249 C450 249 462 249 500 249"/>
+  <text x="76" y="462" class="t">用途：判断共享边、边界边、非流形结构，或者把 face 的修改关系传播到 edge / vertex。</text>
+</svg>

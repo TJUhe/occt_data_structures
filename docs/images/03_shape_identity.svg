@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">TopoDS_Shape identity levels</title>
+  <desc id="desc">IsPartner, IsSame and IsEqual compare different parts of a TopoDS_Shape.</desc>
+  <defs>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1b2a34" flood-opacity=".14"/></filter>
+    <style>
+      .bg{fill:#f7faf8}.title{font:700 25px Arial,"Microsoft YaHei";fill:#203447}
+      .card{fill:#fff;stroke:#d4dee5;stroke-width:1.3;filter:url(#shadow)}.pill{rx:6}
+      .h{font:700 16px Arial,"Microsoft YaHei";fill:#233747}.t{font:14px Arial,"Microsoft YaHei";fill:#465d6b}
+      .m{font:13px Consolas,monospace;fill:#334b5a}.a{fill:#eaf5ee;stroke:#9ec7ab}.b{fill:#fff4df;stroke:#d9b36d}.c{fill:#eef1fb;stroke:#9babd7}.d{fill:#f8edf2;stroke:#d6a1b8}
+      .line{stroke:#657b8a;stroke-width:1.8;fill:none}
+    </style>
+  </defs>
+  <rect width="980" height="500" class="bg"/>
+  <text x="46" y="50" class="title">TopoDS_Shape: 同一个对象，可能有三层“相同”</text>
+  <g transform="translate(62 92)">
+    <rect class="card" width="256" height="296" rx="8"/>
+    <text x="24" y="36" class="h">Shape S1</text>
+    <rect x="24" y="70" width="202" height="44" rx="6" class="a"/><text x="42" y="98" class="m">TShape = T42</text>
+    <rect x="24" y="132" width="202" height="44" rx="6" class="b"/><text x="42" y="160" class="m">Location = L0</text>
+    <rect x="24" y="194" width="202" height="44" rx="6" class="c"/><text x="42" y="222" class="m">Orientation = FORWARD</text>
+  </g>
+  <g transform="translate(362 92)">
+    <rect class="card" width="256" height="296" rx="8"/>
+    <text x="24" y="36" class="h">Shape S2</text>
+    <rect x="24" y="70" width="202" height="44" rx="6" class="a"/><text x="42" y="98" class="m">TShape = T42</text>
+    <rect x="24" y="132" width="202" height="44" rx="6" class="b"/><text x="42" y="160" class="m">Location = L0</text>
+    <rect x="24" y="194" width="202" height="44" rx="6" class="d"/><text x="42" y="222" class="m">Orientation = REVERSED</text>
+  </g>
+  <g transform="translate(670 100)">
+    <rect class="card" width="252" height="284" rx="8"/>
+    <text x="24" y="36" class="h">比较结果</text>
+    <text x="24" y="76" class="m">IsPartner(S1,S2) = true</text>
+    <text x="24" y="116" class="m">IsSame(S1,S2)    = true</text>
+    <text x="24" y="156" class="m">IsEqual(S1,S2)   = false</text>
+    <rect x="24" y="194" width="206" height="56" rx="6" fill="#e8f1f4" stroke="#bdd2dc"/>
+    <text x="40" y="218" class="t">TopTools_ShapeMapHasher</text>
+    <text x="40" y="240" class="t">默认使用 IsSame</text>
+  </g>
+  <path class="line" d="M288 184 C320 155 350 155 386 184"/>
+  <path class="line" d="M288 246 C318 278 350 278 386 246"/>
+  <text x="80" y="444" class="t">启发：哈希表里的“相等”不是数学细节，而是 CAD 业务语义。</text>
+</svg>

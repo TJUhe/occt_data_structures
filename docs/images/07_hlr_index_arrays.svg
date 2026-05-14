@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">HLRBRep indexed maps and arrays</title>
+  <desc id="desc">Edges and faces are assigned stable ids, then dense arrays store algorithm data.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#31546f"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1b2a34" flood-opacity=".14"/></filter>
+    <style>
+      .bg{fill:#f8fafb}.title{font:700 25px Arial,"Microsoft YaHei";fill:#203447}.card{fill:#fff;stroke:#d4dee5;stroke-width:1.3;filter:url(#shadow)}
+      .shape{fill:#fff4df;stroke:#d9b36d;stroke-width:1.4}.id{fill:#eef1fb;stroke:#9babd7;stroke-width:1.2}.arr{fill:#eaf5ee;stroke:#8dbc9b;stroke-width:1.2}
+      .h{font:700 16px Arial,"Microsoft YaHei";fill:#233747}.t{font:14px Arial,"Microsoft YaHei";fill:#465d6b}.m{font:13px Consolas,monospace;fill:#334b5a}
+      .line{stroke:#31546f;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="980" height="540" class="bg"/>
+  <text x="44" y="50" class="title">HLRBRep_Data: 复杂 shape 先编号，再进入密集数组计算</text>
+  <g transform="translate(58 106)">
+    <rect class="card" width="220" height="258" rx="8"/><text x="24" y="36" class="h">TopoDS_Shape</text>
+    <rect x="36" y="74" width="136" height="38" rx="6" class="shape"/><text x="62" y="99" class="m">Edge E42</text>
+    <rect x="36" y="132" width="136" height="38" rx="6" class="shape"/><text x="62" y="157" class="m">Edge E77</text>
+    <rect x="36" y="190" width="136" height="38" rx="6" class="shape"/><text x="62" y="215" class="m">Face F12</text>
+  </g>
+  <g transform="translate(382 106)">
+    <rect class="card" width="220" height="258" rx="8"/><text x="24" y="36" class="h">IndexedMap</text>
+    <rect x="34" y="74" width="150" height="38" rx="6" class="id"/><text x="54" y="99" class="m">E42 -> 1</text>
+    <rect x="34" y="132" width="150" height="38" rx="6" class="id"/><text x="54" y="157" class="m">E77 -> 2</text>
+    <rect x="34" y="190" width="150" height="38" rx="6" class="id"/><text x="54" y="215" class="m">F12 -> 1</text>
+  </g>
+  <g transform="translate(704 106)">
+    <rect class="card" width="220" height="258" rx="8"/><text x="24" y="36" class="h">Array1</text>
+    <rect x="28" y="70" width="164" height="44" rx="6" class="arr"/><text x="44" y="97" class="m">myEData(1)</text>
+    <rect x="28" y="128" width="164" height="44" rx="6" class="arr"/><text x="44" y="155" class="m">myEData(2)</text>
+    <rect x="28" y="186" width="164" height="44" rx="6" class="arr"/><text x="44" y="213" class="m">myFData(1)</text>
+  </g>
+  <path class="line" d="M278 199 C320 199 342 199 382 199"/>
+  <path class="line" d="M602 199 C640 199 664 199 704 199"/>
+  <text x="78" y="438" class="t">好处：哈希表只负责对象到编号，后续遮挡、状态、参数范围都在数组中高速更新。</text>
+</svg>

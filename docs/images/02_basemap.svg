@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">NCollection BaseMap buckets and index table</title>
+  <desc id="desc">Hash buckets connect keys to nodes, while indexed maps also keep an index-to-node table.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#31546f"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1b2a34" flood-opacity=".16"/></filter>
+    <style>
+      .bg{fill:#f8fafb}.title{font:700 25px Arial,"Microsoft YaHei";fill:#203447}
+      .h{font:700 16px Arial,"Microsoft YaHei";fill:#233747}.t{font:13px Arial,"Microsoft YaHei";fill:#465d6b}
+      .mono{font:13px Consolas,monospace;fill:#344d5b}.box{fill:#fff;stroke:#d3dde4;stroke-width:1.4;filter:url(#shadow)}
+      .bucket{fill:#e9f3f5;stroke:#9bbfcc;stroke-width:1.2}.idx{fill:#fff2df;stroke:#d9b36d;stroke-width:1.2}
+      .node{fill:#eef1fb;stroke:#96a7d9;stroke-width:1.2}.value{fill:#eef8ef;stroke:#9bc69d;stroke-width:1.2}
+      .line{stroke:#31546f;stroke-width:2;fill:none;marker-end:url(#arrow)}.weak{stroke:#aab8c2;stroke-width:1.5;fill:none}
+    </style>
+  </defs>
+  <rect width="980" height="560" class="bg"/>
+  <text x="44" y="50" class="title">NCollection_BaseMap: myData1 管哈希桶，myData2 管稳定编号</text>
+  <g transform="translate(50 96)">
+    <rect width="210" height="346" rx="8" class="box"/>
+    <text x="24" y="34" class="h">myData1: buckets</text>
+    <text x="24" y="58" class="t">HashCode(key, NbBuckets)</text>
+    <g transform="translate(28 88)">
+      <rect class="bucket" width="150" height="34" rx="5"/><text x="18" y="22" class="mono">bucket 0</text>
+      <rect class="bucket" y="52" width="150" height="34" rx="5"/><text x="18" y="74" class="mono">bucket 1</text>
+      <rect class="bucket" y="104" width="150" height="34" rx="5"/><text x="18" y="126" class="mono">bucket 2</text>
+      <rect class="bucket" y="156" width="150" height="34" rx="5"/><text x="18" y="178" class="mono">bucket 3</text>
+      <rect class="bucket" y="208" width="150" height="34" rx="5"/><text x="18" y="230" class="mono">bucket n</text>
+    </g>
+  </g>
+  <g transform="translate(360 102)">
+    <rect class="node" width="180" height="58" rx="7"/><text x="18" y="24" class="mono">node: Face A</text><text x="18" y="44" class="t">index = 1</text>
+    <rect class="node" y="100" width="180" height="58" rx="7"/><text x="18" y="124" class="mono">node: Edge B</text><text x="18" y="144" class="t">index = 2</text>
+    <rect class="node" y="200" width="180" height="58" rx="7"/><text x="18" y="224" class="mono">node: Vertex C</text><text x="18" y="244" class="t">index = 3</text>
+  </g>
+  <g transform="translate(668 96)">
+    <rect width="230" height="346" rx="8" class="box"/>
+    <text x="24" y="34" class="h">myData2: index table</text>
+    <text x="24" y="58" class="t">Only IndexedMap / IndexedDataMap</text>
+    <g transform="translate(30 88)">
+      <rect class="idx" width="160" height="34" rx="5"/><text x="18" y="22" class="mono">[0] -> index 1</text>
+      <rect class="idx" y="74" width="160" height="34" rx="5"/><text x="18" y="96" class="mono">[1] -> index 2</text>
+      <rect class="idx" y="148" width="160" height="34" rx="5"/><text x="18" y="170" class="mono">[2] -> index 3</text>
+    </g>
+  </g>
+  <path class="line" d="M228 201 C270 201 304 130 360 130"/>
+  <path class="line" d="M228 253 C285 253 312 231 360 231"/>
+  <path class="line" d="M228 305 C280 305 310 330 360 330"/>
+  <path class="line" d="M540 130 C595 130 610 201 698 201"/>
+  <path class="line" d="M540 231 C610 231 618 275 698 275"/>
+  <path class="line" d="M540 330 C600 330 620 349 698 349"/>
+  <g transform="translate(360 414)">
+    <rect class="value" width="295" height="82" rx="8"/>
+    <text x="20" y="30" class="h">查询路径</text>
+    <text x="20" y="54" class="t">key -> bucket -> node -> index/value</text>
+    <text x="20" y="72" class="t">index -> myData2[index - 1] -> node</text>
+  </g>
+</svg>
