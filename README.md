@@ -30,6 +30,7 @@
 7. 读 [07_hlr_arrays.md](docs/07_hlr_arrays.md)，观察“IndexedMap + Array1”的编号压缩模式。
 8. 读 [08_handles_lifetime.md](docs/08_handles_lifetime.md)，理解句柄、RTTI 和生命周期。
 9. 最后读 [09_case_studies.md](docs/09_case_studies.md)，把所有模式串成完整任务。
+10. 读 [10_std_equivalents.md](docs/10_std_equivalents.md)，把 OCCT 容器翻译成 std 思维模型。
 
 ## 目录结构
 
@@ -46,6 +47,7 @@
 │   ├── 07_hlr_arrays.md
 │   ├── 08_handles_lifetime.md
 │   ├── 09_case_studies.md
+│   ├── 10_std_equivalents.md
 │   └── 99_source_index.md
 └── exercises/
     ├── README.md
@@ -81,6 +83,20 @@
 | 06 | [BOPAlgo images/origins](docs/images/06_boolean_images_origins.svg) |
 | 07 | [HLRBRep 编号与数组](docs/images/07_hlr_index_arrays.svg) |
 | 08 | [Handle 引用计数](docs/images/08_handle_lifetime.svg) |
+
+## OCCT 与 std 对照速查
+
+| OCCT | std 思维模型 |
+| --- | --- |
+| `NCollection_Map` | `std::unordered_set` |
+| `NCollection_DataMap` | `std::unordered_map` |
+| `NCollection_IndexedMap` | `std::unordered_map<Key, int> + std::vector<Key>` |
+| `NCollection_IndexedDataMap` | `std::unordered_map<Key, int> + std::vector<pair<Key, Value>>` |
+| `NCollection_List` | `std::list` |
+| `NCollection_Array1` | `std::vector` 加自定义下标偏移 |
+| `opencascade::handle<T>` | 侵入式 `std::shared_ptr<T>` 思维 |
+
+完整解释见 [docs/10_std_equivalents.md](docs/10_std_equivalents.md)。
 
 ## 阅读方法
 

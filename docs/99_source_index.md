@@ -31,6 +31,12 @@ docs/images/07_hlr_index_arrays.svg
 docs/images/08_handle_lifetime.svg
 ```
 
+本教程补充对照：
+
+```text
+docs/10_std_equivalents.md
+```
+
 推荐搜索：
 
 ```text

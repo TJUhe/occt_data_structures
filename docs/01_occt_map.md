@@ -122,6 +122,8 @@ NCollection_IndexedDataMap<
 | 栈 | `TopExp_Explorer` 内部用迭代器栈做深度遍历 |
 | 引用计数 | `opencascade::handle<T>` 管理对象图生命周期 |
 
+更完整的 OCCT 与 std 对照见 [10_std_equivalents.md](10_std_equivalents.md)。那里会区分“概念上像 std 的什么”和“OCCT 源码是否真的用 std 实现”。
+
 OCCT 的难点不是数据结构本身，而是“同一个 shape 在不同语义下是否算同一个”。这会在第 3 章展开。
 
 ## 本章阅读建议
