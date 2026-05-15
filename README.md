@@ -48,7 +48,8 @@
 │   ├── 09_case_studies.md
 │   └── 99_source_index.md
 └── exercises/
-    └── README.md
+    ├── README.md
+    └── SOLUTIONS.md
 ```
 
 ## 核心源码速查
